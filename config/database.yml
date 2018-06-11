@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 10
+  username: root
+  reconnect: true
+  password: code
+  host: localhost
+  timeout: 5000
+
+
+development:
+  <<: *default
+  database:  seven_fit_dev
+
+  <<: *default
+
+production:
+  <<: *default
+  url: <%= ENV['MYSQL_URL'] %>
+
